@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Soulvers &middot; Mateo and the Wave of Big Feelings</title>
+<meta name="description" content="A 5-minute bilingual (EN/ES) children's audiobook on naming big feelings, produced with an automated AI workflow."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#fff7ec; --card:#fffdf9; --ink:#3a3330; --muted:#7c726b;
+  --coral:#f08a7a; --coral-deep:#e06a58; --teal:#4fa8a2; --teal-deep:#3c857f;
+  --sand:#f3d2a3; --line:#efe2cf; --shadow:0 18px 50px -22px rgba(120,80,50,.45);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(1200px 600px at 50% -120px,#ffe6c9,transparent),var(--cream);
+  color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding:0 22px}
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--teal-deep);background:#e7f4f1;border:1px solid #cfe9e3;
+  padding:7px 14px;border-radius:999px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--teal);display:inline-block}
+header.hero{padding:46px 0 8px;text-align:center}
+h1{font-family:Fraunces,Georgia,serif;font-weight:700;font-size:clamp(34px,6vw,58px);line-height:1.05;
+  margin:22px 0 10px;letter-spacing:-.01em}
+.sub{color:var(--muted);font-size:clamp(16px,2.4vw,19px);max-width:640px;margin:0 auto 6px}
+.cover-card{background:var(--card);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);
+  padding:18px;margin:30px auto 0;max-width:560px}
+.cover-card img{width:100%;border-radius:18px;display:block}
+.meta{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;color:var(--muted);font-size:14.5px;margin:16px 2px 2px}
+.meta b{color:var(--ink);font-weight:600}
+
+.player{background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);
+  padding:24px;margin:34px auto 0;max-width:680px}
+.lang{display:flex;gap:8px;background:#f4ead9;border-radius:14px;padding:6px;width:max-content;margin:0 auto 18px}
+.lang button{border:0;background:transparent;color:var(--muted);font-family:Inter;font-weight:600;font-size:15px;
+  padding:9px 20px;border-radius:10px;cursor:pointer;transition:.18s}
+.lang button.active{background:#fff;color:var(--ink);box-shadow:0 4px 14px -8px rgba(0,0,0,.3)}
+.player h3{font-family:Fraunces,serif;margin:0 0 4px;font-size:21px}
+.player .pmeta{color:var(--muted);font-size:14px;margin:0 0 14px}
+audio{width:100%;margin-top:6px}
+.story{background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);
+  padding:30px clamp(22px,5vw,46px);margin:34px auto 0;max-width:760px}
+.story h2,.how h2{font-family:Fraunces,serif;font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--coral-deep);margin:0 0 14px}
+.story p{margin:0 0 13px;font-size:17px}
+.story p:first-of-type::first-letter{font-family:Fraunces,serif;font-size:3.1em;line-height:.8;float:left;
+  padding:6px 10px 0 0;color:var(--coral-deep)}
+.hide{display:none}
+
+.how{margin:42px auto 0;max-width:880px}
+.how-head{text-align:center;margin-bottom:26px}
+.how-head p{color:var(--muted);max-width:620px;margin:6px auto 0}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow)}
+.step .n{width:34px;height:34px;border-radius:10px;background:#fde7df;color:var(--coral-deep);
+  font-family:Fraunces,serif;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.step h4{margin:0 0 6px;font-size:16.5px}
+.step p{margin:0;color:var(--muted);font-size:14.5px}
+.cap{background:linear-gradient(120deg,#fef0e7,#e9f5f2);border:1px solid var(--line);border-radius:20px;
+  padding:22px 26px;margin:18px auto 0;max-width:880px;text-align:center;color:var(--ink);font-size:16px}
+.cap b{color:var(--coral-deep)}
+footer{text-align:center;color:var(--muted);font-size:14px;padding:48px 0 60px}
+footer .name{color:var(--ink);font-weight:600}
+a{color:var(--teal-deep)}
+
+/* library + nav additions */
+.backbar{max-width:920px;margin:0 auto;padding:18px 22px 0}
+.backlink{display:inline-flex;align-items:center;gap:7px;font-weight:600;font-size:14.5px;color:var(--teal-deep);text-decoration:none}
+.backlink:hover{color:var(--coral-deep)}
+.lib-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin:36px auto 0;max-width:880px}
+.lib-card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:24px;
+  box-shadow:var(--shadow);overflow:hidden;text-decoration:none;color:inherit;transition:transform .18s, box-shadow .18s}
+.lib-card:hover{transform:translateY(-4px);box-shadow:0 26px 60px -24px rgba(120,80,50,.5)}
+.lib-card .art{position:relative;aspect-ratio:1/1;overflow:hidden}
+.lib-card .art img{width:100%;height:100%;object-fit:cover;display:block}
+.lib-card .badge{position:absolute;top:12px;left:12px;font-size:12px;font-weight:600;letter-spacing:.03em;
+  background:rgba(255,255,255,.92);color:var(--coral-deep);padding:5px 11px;border-radius:999px;border:1px solid var(--line)}
+.lib-card .body{padding:20px 22px 22px}
+.lib-card h3{font-family:Fraunces,serif;font-size:22px;margin:0 0 6px;line-height:1.15}
+.lib-card .blurb{color:var(--muted);font-size:14.5px;margin:0 0 14px}
+.lib-card .row{display:flex;flex-wrap:wrap;gap:8px 16px;color:var(--muted);font-size:13px;margin-bottom:14px}
+.lib-card .row b{color:var(--ink);font-weight:600}
+.lib-card .cta{font-weight:600;color:var(--teal-deep);font-size:15px}
+.lib-card:hover .cta{color:var(--coral-deep)}
+</style>
+</head>
+<body>
+<div class="backbar"><a class="backlink" href="index.html">&larr; The Soulvers Library</a></div>
+<div class="wrap">
+  <header class="hero">
+    <span class="tag"><span class="dot"></span>Working sample &middot; made for Soulvers</span>
+    <h1>Mateo and the Wave of Big Feelings</h1>
+    <p class="sub">A five-minute children's audiobook about naming big feelings and learning to breathe through them. Produced end-to-end with an automated AI workflow, in English and Spanish.</p>
+    <div class="cover-card">
+      <img src="assets/cover.png" alt="A boy and his dog on a beach at sunset beside a little blue house"/>
+    </div>
+    <div class="meta">
+      <span><b>Ages</b> 4&ndash;8</span>
+      <span><b>Theme</b> emotional intelligence</span>
+      <span><b>Runtime</b> ~5 min each</span>
+      <span><b>Languages</b> EN &middot; ES</span>
+    </div>
+  </header>
+
+  <section class="player">
+    <div class="lang">
+      <button id="btn-en" class="active" onclick="setLang('en')">English</button>
+      <button id="btn-es" onclick="setLang('es')">Espa&ntilde;ol</button>
+    </div>
+    <div id="p-en">
+      <h3>Mateo and the Wave of Big Feelings</h3>
+      <p class="pmeta">Narrated in English &middot; neural voice</p>
+      <audio controls preload="none" src="assets/audiobook_en.mp3"></audio>
+    </div>
+    <div id="p-es" class="hide">
+      <h3>Mateo y la ola de los sentimientos grandes</h3>
+      <p class="pmeta">Narrado en espa&ntilde;ol &middot; voz neuronal</p>
+      <audio controls preload="none" src="assets/audiobook_es.mp3"></audio>
+    </div>
+  </section>
+
+  <section class="story">
+    <div id="s-en">
+      <h2>Read along · English</h2>
+        <p>Mateo was a small boy who lived in a little blue house near the sea. He loved three things most of all: the smell of warm bread, the sound of seagulls, and splashing in the gentle waves with his dog, Coco.</p>
+        <p>One morning, Mateo built the tallest sandcastle he had ever made. It had four towers, a deep moat, and a tiny flag on top. He was so proud. But just as he stepped back to look at it, a big wave rolled in and washed the whole castle away.</p>
+        <p>Mateo felt something rise up inside him, hot and fast, like a wave of his own. His cheeks turned red. His hands made little fists. He wanted to shout.</p>
+        <p>"Oh," said Grandma Lucia, sitting nearby in her wide straw hat. "It looks like a big feeling just came to visit you."</p>
+        <p>"I am angry!" said Mateo. "My castle is gone!"</p>
+        <p>"That makes sense," said Grandma Lucia, gently. "Big feelings are not bad. They are messengers. Can you name the one that is here?"</p>
+        <p>Mateo thought about it. "Angry," he said. "And... sad."</p>
+        <p>"Wonderful," said Grandma Lucia. "When you can name a feeling, it stops feeling so scary. Now, watch the sea with me."</p>
+        <p>Together they looked at the water. A wave rose up, tall and strong. Then, slowly, it curled over and melted into the sand. Another wave came. And that one melted too.</p>
+        <p>"Feelings are like the waves," said Grandma Lucia. "They come in big and strong. But if you wait, and breathe, they always settle down again. They never stay forever."</p>
+        <p>Mateo took a slow breath in, the way Grandma showed him. He smelled the salt and the warm bread from home. Then he let the breath out, long and soft, like a wave returning to the sea. In through the nose. Out through the mouth. One more time.</p>
+        <p>Something inside him grew quieter. The hot, fast feeling began to settle, just like the water.</p>
+        <p>"It went down a little," Mateo said, surprised.</p>
+        <p>"That is the magic of the breath," said Grandma Lucia, smiling. "You did that all by yourself."</p>
+        <p>Mateo looked at the flat, wet sand where his castle used to be. He felt sad still, but the angry part had floated away.</p>
+        <p>"Coco," he called, "want to help me build a new one?"</p>
+        <p>Coco barked and wagged his whole body. Together they dug and patted and shaped. This time Mateo built the castle higher up the beach, away from the reaching waves. It had five towers, and two flags, and a bridge made of seashells.</p>
+        <p>A little girl named Sofia was watching from nearby. She looked like she wanted to play, but she stayed where she was, holding her own small bucket, quiet and unsure.</p>
+        <p>Mateo remembered how it felt to have a big feeling all alone. So he waved to her.</p>
+        <p>"Do you want to build with us?" he asked. "We need someone in charge of the seashell bridge."</p>
+        <p>Sofia's face opened into a bright, happy smile. She ran over, and the three of them, plus Coco, built the grandest castle on the whole beach.</p>
+        <p>When the sun grew sleepy and orange, Grandma Lucia called them in for warm bread and honey.</p>
+        <p>"Mateo," she said, "today a big wave knocked down your castle, and a big feeling knocked on your heart. What did you learn?"</p>
+        <p>Mateo thought, the way he liked to.</p>
+        <p>"That feelings come like waves," he said. "And if I name them and breathe, they settle down. And when I feel better, I can be kind to someone else."</p>
+        <p>"That," said Grandma Lucia, kissing the top of his head, "is the bravest kind of strong."</p>
+        <p>That night, Mateo lay in his little bed in the little blue house. He could hear the sea outside, breathing in and out, in and out, just like him.</p>
+        <p>And whenever a big feeling came to visit, Mateo remembered: it was only a wave. He could name it. He could breathe. And he would always, always be okay.</p>
+        <p>The end.</p>
+    </div>
+    
+    <div id="s-es" class="hide">
+      <h2>Lee con nosotros · Español</h2>
+        <p>Mateo era un niño pequeño que vivía en una casita azul junto al mar. Le gustaban tres cosas más que ninguna otra: el olor del pan caliente, el sonido de las gaviotas y chapotear en las olas suaves con su perro, Coco.</p>
+        <p>Una mañana, Mateo construyó el castillo de arena más alto que había hecho jamás. Tenía cuatro torres, un foso profundo y una pequeña bandera arriba. Estaba muy orgulloso. Pero justo cuando dio un paso atrás para mirarlo, una ola grande llegó y se llevó todo el castillo.</p>
+        <p>Mateo sintió que algo crecía dentro de él, caliente y rápido, como una ola propia. Sus mejillas se pusieron rojas. Sus manos se cerraron en puños. Tenía ganas de gritar.</p>
+        <p>"Vaya," dijo la abuela Lucía, que estaba sentada cerca con su sombrero de paja. "Parece que un sentimiento grande vino a visitarte."</p>
+        <p>"¡Estoy enojado!" dijo Mateo. "¡Mi castillo ya no está!"</p>
+        <p>"Tiene sentido," dijo la abuela Lucía con dulzura. "Los sentimientos grandes no son malos. Son mensajeros. ¿Puedes ponerle nombre al que está aquí?"</p>
+        <p>Mateo lo pensó. "Enojado," dijo. "Y... triste."</p>
+        <p>"Maravilloso," dijo la abuela Lucía. "Cuando puedes nombrar un sentimiento, deja de dar tanto miedo. Ahora, mira el mar conmigo."</p>
+        <p>Juntos miraron el agua. Una ola se levantó, alta y fuerte. Luego, despacio, se dobló y se deshizo en la arena. Llegó otra ola. Y esa también se deshizo.</p>
+        <p>"Los sentimientos son como las olas," dijo la abuela Lucía. "Llegan grandes y fuertes. Pero si esperas y respiras, siempre se calman otra vez. Nunca se quedan para siempre."</p>
+        <p>Mateo respiró despacio, como le enseñó la abuela. Olió la sal y el pan caliente de casa. Luego soltó el aire, largo y suave, como una ola que vuelve al mar. Por la nariz hacia adentro. Por la boca hacia afuera. Una vez más.</p>
+        <p>Algo dentro de él se volvió más tranquilo. El sentimiento caliente y rápido empezó a calmarse, igual que el agua.</p>
+        <p>"Bajó un poquito," dijo Mateo, sorprendido.</p>
+        <p>"Esa es la magia de la respiración," dijo la abuela Lucía, sonriendo. "Lo hiciste tú solito."</p>
+        <p>Mateo miró la arena mojada y plana donde antes estaba su castillo. Todavía se sentía triste, pero la parte enojada se había ido flotando.</p>
+        <p>"Coco," llamó, "¿quieres ayudarme a construir uno nuevo?"</p>
+        <p>Coco ladró y movió todo el cuerpo. Juntos cavaron, palmearon y dieron forma. Esta vez Mateo construyó el castillo más arriba en la playa, lejos de las olas. Tenía cinco torres, dos banderas y un puente hecho de conchas de mar.</p>
+        <p>Una niña llamada Sofía miraba desde cerca. Parecía querer jugar, pero se quedó donde estaba, con su cubito, callada y dudosa.</p>
+        <p>Mateo recordó cómo se sentía tener un sentimiento grande estando solo. Así que la saludó con la mano.</p>
+        <p>"¿Quieres construir con nosotros?" preguntó. "Necesitamos a alguien a cargo del puente de conchas."</p>
+        <p>La cara de Sofía se abrió en una sonrisa brillante y feliz. Corrió hacia ellos, y los tres, más Coco, construyeron el castillo más grande de toda la playa.</p>
+        <p>Cuando el sol se puso soñoliento y naranja, la abuela Lucía los llamó a comer pan caliente con miel.</p>
+        <p>"Mateo," dijo, "hoy una ola grande tiró tu castillo, y un sentimiento grande tocó tu corazón. ¿Qué aprendiste?"</p>
+        <p>Mateo pensó, como a él le gustaba.</p>
+        <p>"Que los sentimientos llegan como olas," dijo. "Y si los nombro y respiro, se calman. Y cuando me siento mejor, puedo ser amable con alguien más."</p>
+        <p>"Eso," dijo la abuela Lucía, dándole un beso en la cabeza, "es la forma más valiente de ser fuerte."</p>
+        <p>Esa noche, Mateo se acostó en su camita en la casita azul. Podía oír el mar afuera, respirando hacia adentro y hacia afuera, igual que él.</p>
+        <p>Y cada vez que un sentimiento grande venía de visita, Mateo recordaba: era solo una ola. Podía nombrarlo. Podía respirar. Y siempre, siempre iba a estar bien.</p>
+        <p>Fin.</p>
+    </div>
+  </section>
+
+  <section class="how">
+    <div class="how-head">
+      <h2 style="text-align:center">How this was made</h2>
+      <p>An automated, repeatable AI pipeline — the same workflow that can produce five short audiobooks every week.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h4>Story &amp; values</h4><p>Claude drafts an original, age-appropriate story built around one emotional-intelligence skill, then translates it to Spanish.</p></div>
+      <div class="step"><div class="n">2</div><h4>Narration</h4><p>Neural text-to-speech (ElevenLabs / Microsoft Edge Neural) voices each language at a gentle storytime pace.</p></div>
+      <div class="step"><div class="n">3</div><h4>Illustration</h4><p>A matching cover and scene art generated and color-matched to the story's mood and palette.</p></div>
+      <div class="step"><div class="n">4</div><h4>Assemble &amp; publish</h4><p>Audio, art and read-along text are composed into a finished, shareable audiobook page — ready for video next.</p></div>
+    </div>
+    <div class="cap">Built in one sitting as a sample for <b>Soulvers</b>. The pipeline scales to <b>5 audiobooks per week</b>, bilingual by default, each tied to a clear value or social skill for children.</div>
+  </section>
+
+  <footer>
+    <p class="name">Sample created for Soulvers by Tobias Brown</p>
+    <p>Original story, narration and art · English &amp; Español · not affiliated, made to demonstrate the workflow.</p>
+  </footer>
+</div>
+
+  <footer>
+    <p class="name">Sample created for Soulvers by Tobias Brown</p>
+    <p>Original story, narration and art &middot; English &amp; Espa&ntilde;ol &middot; not affiliated, made to demonstrate the workflow.</p>
+  </footer>
+</div>
+<script>
+function setLang(l){
+  var en = l==='en';
+  document.getElementById('btn-en').classList.toggle('active',en);
+  document.getElementById('btn-es').classList.toggle('active',!en);
+  document.getElementById('p-en').classList.toggle('hide',!en);
+  document.getElementById('p-es').classList.toggle('hide',en);
+  document.getElementById('s-en').classList.toggle('hide',!en);
+  document.getElementById('s-es').classList.toggle('hide',en);
+  document.querySelectorAll('audio').forEach(function(a){a.pause();});
+}
+</script>
+</body>
+</html>

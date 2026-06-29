@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Soulvers &middot; Lina and the Honey-Cake Secret</title>
+<meta name="description" content="A 5-minute bilingual (EN/ES) children's audiobook on telling the truth, produced with an automated AI workflow."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#fff7ec; --card:#fffdf9; --ink:#3a3330; --muted:#7c726b;
+  --coral:#f08a7a; --coral-deep:#e06a58; --teal:#4fa8a2; --teal-deep:#3c857f;
+  --sand:#f3d2a3; --line:#efe2cf; --shadow:0 18px 50px -22px rgba(120,80,50,.45);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(1200px 600px at 50% -120px,#ffe6c9,transparent),var(--cream);
+  color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding:0 22px}
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--teal-deep);background:#e7f4f1;border:1px solid #cfe9e3;
+  padding:7px 14px;border-radius:999px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--teal);display:inline-block}
+header.hero{padding:46px 0 8px;text-align:center}
+h1{font-family:Fraunces,Georgia,serif;font-weight:700;font-size:clamp(34px,6vw,58px);line-height:1.05;
+  margin:22px 0 10px;letter-spacing:-.01em}
+.sub{color:var(--muted);font-size:clamp(16px,2.4vw,19px);max-width:640px;margin:0 auto 6px}
+.cover-card{background:var(--card);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);
+  padding:18px;margin:30px auto 0;max-width:560px}
+.cover-card img{width:100%;border-radius:18px;display:block}
+.meta{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;color:var(--muted);font-size:14.5px;margin:16px 2px 2px}
+.meta b{color:var(--ink);font-weight:600}
+
+.player{background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);
+  padding:24px;margin:34px auto 0;max-width:680px}
+.lang{display:flex;gap:8px;background:#f4ead9;border-radius:14px;padding:6px;width:max-content;margin:0 auto 18px}
+.lang button{border:0;background:transparent;color:var(--muted);font-family:Inter;font-weight:600;font-size:15px;
+  padding:9px 20px;border-radius:10px;cursor:pointer;transition:.18s}
+.lang button.active{background:#fff;color:var(--ink);box-shadow:0 4px 14px -8px rgba(0,0,0,.3)}
+.player h3{font-family:Fraunces,serif;margin:0 0 4px;font-size:21px}
+.player .pmeta{color:var(--muted);font-size:14px;margin:0 0 14px}
+audio{width:100%;margin-top:6px}
+.story{background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);
+  padding:30px clamp(22px,5vw,46px);margin:34px auto 0;max-width:760px}
+.story h2,.how h2{font-family:Fraunces,serif;font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--coral-deep);margin:0 0 14px}
+.story p{margin:0 0 13px;font-size:17px}
+.story p:first-of-type::first-letter{font-family:Fraunces,serif;font-size:3.1em;line-height:.8;float:left;
+  padding:6px 10px 0 0;color:var(--coral-deep)}
+.hide{display:none}
+
+.how{margin:42px auto 0;max-width:880px}
+.how-head{text-align:center;margin-bottom:26px}
+.how-head p{color:var(--muted);max-width:620px;margin:6px auto 0}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow)}
+.step .n{width:34px;height:34px;border-radius:10px;background:#fde7df;color:var(--coral-deep);
+  font-family:Fraunces,serif;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.step h4{margin:0 0 6px;font-size:16.5px}
+.step p{margin:0;color:var(--muted);font-size:14.5px}
+.cap{background:linear-gradient(120deg,#fef0e7,#e9f5f2);border:1px solid var(--line);border-radius:20px;
+  padding:22px 26px;margin:18px auto 0;max-width:880px;text-align:center;color:var(--ink);font-size:16px}
+.cap b{color:var(--coral-deep)}
+footer{text-align:center;color:var(--muted);font-size:14px;padding:48px 0 60px}
+footer .name{color:var(--ink);font-weight:600}
+a{color:var(--teal-deep)}
+
+/* library + nav additions */
+.backbar{max-width:920px;margin:0 auto;padding:18px 22px 0}
+.backlink{display:inline-flex;align-items:center;gap:7px;font-weight:600;font-size:14.5px;color:var(--teal-deep);text-decoration:none}
+.backlink:hover{color:var(--coral-deep)}
+.lib-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin:36px auto 0;max-width:880px}
+.lib-card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:24px;
+  box-shadow:var(--shadow);overflow:hidden;text-decoration:none;color:inherit;transition:transform .18s, box-shadow .18s}
+.lib-card:hover{transform:translateY(-4px);box-shadow:0 26px 60px -24px rgba(120,80,50,.5)}
+.lib-card .art{position:relative;aspect-ratio:1/1;overflow:hidden}
+.lib-card .art img{width:100%;height:100%;object-fit:cover;display:block}
+.lib-card .badge{position:absolute;top:12px;left:12px;font-size:12px;font-weight:600;letter-spacing:.03em;
+  background:rgba(255,255,255,.92);color:var(--coral-deep);padding:5px 11px;border-radius:999px;border:1px solid var(--line)}
+.lib-card .body{padding:20px 22px 22px}
+.lib-card h3{font-family:Fraunces,serif;font-size:22px;margin:0 0 6px;line-height:1.15}
+.lib-card .blurb{color:var(--muted);font-size:14.5px;margin:0 0 14px}
+.lib-card .row{display:flex;flex-wrap:wrap;gap:8px 16px;color:var(--muted);font-size:13px;margin-bottom:14px}
+.lib-card .row b{color:var(--ink);font-weight:600}
+.lib-card .cta{font-weight:600;color:var(--teal-deep);font-size:15px}
+.lib-card:hover .cta{color:var(--coral-deep)}
+</style>
+</head>
+<body>
+<div class="backbar"><a class="backlink" href="index.html">&larr; The Soulvers Library</a></div>
+<div class="wrap">
+  <header class="hero">
+    <span class="tag"><span class="dot"></span>Working sample &middot; made for Soulvers</span>
+    <h1>Lina and the Honey-Cake Secret</h1>
+    <p class="sub">A five-minute children's audiobook about telling the truth and how a secret gets lighter the moment you say it out loud. Produced end-to-end with an automated AI workflow, in English and Spanish.</p>
+    <div class="cover-card">
+      <img src="assets/cover2.png" alt="A girl and a gray cat in a warm bakery beside a honey cake"/>
+    </div>
+    <div class="meta">
+      <span><b>Ages</b> 4&ndash;8</span>
+      <span><b>Theme</b> honesty &amp; telling the truth</span>
+      <span><b>Runtime</b> ~5 min each</span>
+      <span><b>Languages</b> EN &middot; ES</span>
+    </div>
+  </header>
+
+  <section class="player">
+    <div class="lang">
+      <button id="btn-en" class="active" onclick="setLang('en')">English</button>
+      <button id="btn-es" onclick="setLang('es')">Espa&ntilde;ol</button>
+    </div>
+    <div id="p-en">
+      <h3>Lina and the Honey-Cake Secret</h3>
+      <p class="pmeta">Narrated in English &middot; neural voice</p>
+      <audio controls preload="none" src="assets/honesty_en.mp3"></audio>
+    </div>
+    <div id="p-es" class="hide">
+      <h3>Lina y el secreto del pastel de miel</h3>
+      <p class="pmeta">Narrado en espa&ntilde;ol &middot; voz neuronal</p>
+      <audio controls preload="none" src="assets/honesty_es.mp3"></audio>
+    </div>
+  </section>
+
+  <section class="story">
+    <div id="s-en">
+      <h2>Read along &middot; English</h2>
+        <p>Lina was a small girl who lived in the rooms above a tiny bakery, with her grandpa and a soft gray cat named Migas. She loved three things most of all: the warm smell of cinnamon in the morning, the little bell that rang when someone opened the door, and standing on her stool to help her grandpa roll the dough.</p>
+        <p>One afternoon, Abuelo baked something special: a golden honey cake for Señora Pilar, who was turning eighty that night. He brushed it with shiny honey and placed three sugar stars on top. "This one is for the party," he said. "Not for now. We will carry it over together when the sun goes down."</p>
+        <p>Lina nodded. But the cake smelled so sweet. It smelled like honey and warm bread and birthday, all at once.</p>
+        <p>When Abuelo went to the front to help a customer, Lina stayed in the kitchen with the cake. Just one tiny taste, she thought. No one will see. She broke off a small corner and popped it in her mouth. It was the best thing she had ever tasted.</p>
+        <p>But now the cake had a little gap where the corner used to be.</p>
+        <p>Lina's tummy went cold. Quickly, she turned the cake so the broken side faced the wall. There. Now it looked perfect again. Almost.</p>
+        <p>When Abuelo came back, he smiled at her the way he always did. But Lina did not smile all the way back. Something sat inside her, small and hard, like a little stone.</p>
+        <p>She tried to play with Migas, but the stone was still there. She tried to draw a picture, but the stone did not go away. Even when Abuelo gave her a warm roll with butter, her favorite, the stone made it hard to enjoy.</p>
+        <p>Migas looked at her with big, quiet eyes, as if he knew.</p>
+        <p>The afternoon went on, and the stone did not shrink. It seemed to grow. Every time Lina looked at the cake facing the wall, the little stone in her tummy felt heavier.</p>
+        <p>At last, Abuelo sat down beside her. "Lina," he said gently, "you have been very quiet. Quiet like a kitchen with a secret in it."</p>
+        <p>Lina looked at her shoes.</p>
+        <p>"You know," said Abuelo, "a secret is a little like a stone in your pocket. Small at first. Easy to carry. But the longer you hold it, the heavier it gets. Until your whole self feels tired."</p>
+        <p>Lina felt her eyes go hot. "Abuelo," she whispered. "I tasted the cake. I broke a corner. I turned it to the wall so you wouldn't see. I'm sorry."</p>
+        <p>There. The words were out.</p>
+        <p>She waited, scared. But Abuelo did not shout. He pulled her close.</p>
+        <p>"Thank you for telling me the truth," he said. "I know that was hard. Telling the truth, even when you are scared, is one of the bravest things a person can do."</p>
+        <p>And something amazing happened. The little stone in Lina's tummy began to melt away. Her shoulders came down. She could breathe all the way to the bottom.</p>
+        <p>"It feels lighter," she said, surprised.</p>
+        <p>"That is what the truth does," said Abuelo, smiling. "It sets the stone down."</p>
+        <p>"But the cake," said Lina. "It has a gap."</p>
+        <p>Abuelo's eyes twinkled. "Then we have work to do. Together."</p>
+        <p>They tied on their aprons. Lina cracked the eggs and Abuelo measured the flour. They baked a small second cake, just big enough to fill the gap, and joined the two with honey, so you could not tell where one ended and the other began. Lina placed the three sugar stars back on top, very carefully.</p>
+        <p>When the sun went down, they carried the cake to Señora Pilar together. Everyone sang, and the cake was the sweetest anyone could remember.</p>
+        <p>On the way home, Señora Pilar's grandson whispered to Lina, "I broke a cup yesterday, and I hid the pieces. I feel bad." Lina remembered the stone. So she said, "You could tell the truth. It feels heavy, but after, it feels light. I promise." The boy thought about it, and nodded.</p>
+        <p>That night, Lina lay in her little bed above the bakery. She could hear the bell downstairs going still for the day. Her pockets felt empty. Her tummy felt light. No stones anywhere.</p>
+        <p>And whenever a secret started to feel heavy, Lina remembered: she could tell the truth. She could set the stone down. And she would feel light, and warm, and okay again.</p>
+        <p>The end.</p>
+    </div>
+    <div id="s-es" class="hide">
+      <h2>Lee con nosotros &middot; Espa&ntilde;ol</h2>
+        <p>Lina era una niña pequeña que vivía en las habitaciones encima de una panadería diminuta, con su abuelo y un gato gris y suave llamado Migas. Le gustaban tres cosas más que ninguna otra: el olor cálido a canela por la mañana, la campanita que sonaba cuando alguien abría la puerta, y subirse a su banquito para ayudar a su abuelo a estirar la masa.</p>
+        <p>Una tarde, el abuelo horneó algo especial: un pastel de miel dorado para la señora Pilar, que cumplía ochenta años esa noche. Lo pintó con miel brillante y le puso tres estrellas de azúcar encima. "Este es para la fiesta," dijo. "No para ahora. Lo llevaremos juntos cuando se ponga el sol."</p>
+        <p>Lina asintió. Pero el pastel olía muy dulce. Olía a miel, a pan caliente y a cumpleaños, todo a la vez.</p>
+        <p>Cuando el abuelo fue al mostrador a atender a un cliente, Lina se quedó en la cocina con el pastel. Solo una probadita, pensó. Nadie lo verá. Partió una esquinita y se la llevó a la boca. Era lo más rico que había probado en su vida.</p>
+        <p>Pero ahora el pastel tenía un huequito donde antes estaba la esquina.</p>
+        <p>A Lina se le enfrió la barriga. Rápido, giró el pastel para que el lado roto quedara contra la pared. Listo. Ahora se veía perfecto otra vez. Casi.</p>
+        <p>Cuando el abuelo volvió, le sonrió como siempre. Pero Lina no le devolvió la sonrisa del todo. Algo se quedó dentro de ella, pequeño y duro, como una piedrecita.</p>
+        <p>Intentó jugar con Migas, pero la piedra seguía ahí. Intentó hacer un dibujo, pero la piedra no se iba. Hasta cuando el abuelo le dio un panecillo calentito con mantequilla, su favorito, la piedra le hizo difícil disfrutarlo.</p>
+        <p>Migas la miraba con sus ojos grandes y callados, como si lo supiera.</p>
+        <p>La tarde pasó, y la piedra no se hizo más pequeña. Parecía crecer. Cada vez que Lina miraba el pastel contra la pared, la piedrecita en su barriga se sentía más pesada.</p>
+        <p>Por fin, el abuelo se sentó a su lado. "Lina," dijo con dulzura, "has estado muy callada. Callada como una cocina que guarda un secreto."</p>
+        <p>Lina se miró los zapatos.</p>
+        <p>"¿Sabes?" dijo el abuelo. "Un secreto es un poco como una piedra en el bolsillo. Pequeña al principio. Fácil de llevar. Pero cuanto más la cargas, más pesada se vuelve. Hasta que todo tu cuerpo se siente cansado."</p>
+        <p>A Lina se le calentaron los ojos. "Abuelo," susurró. "Probé el pastel. Rompí una esquina. Lo giré contra la pared para que no lo vieras. Lo siento."</p>
+        <p>Listo. Las palabras ya estaban fuera.</p>
+        <p>Esperó, asustada. Pero el abuelo no gritó. La abrazó fuerte.</p>
+        <p>"Gracias por decirme la verdad," dijo. "Sé que fue difícil. Decir la verdad, aun cuando tienes miedo, es una de las cosas más valientes que puede hacer una persona."</p>
+        <p>Y entonces pasó algo asombroso. La piedrecita en la barriga de Lina empezó a deshacerse. Sus hombros bajaron. Pudo respirar hasta el fondo.</p>
+        <p>"Se siente más ligero," dijo, sorprendida.</p>
+        <p>"Eso es lo que hace la verdad," dijo el abuelo, sonriendo. "Deja la piedra en el suelo."</p>
+        <p>"Pero el pastel," dijo Lina. "Tiene un hueco."</p>
+        <p>Los ojos del abuelo brillaron. "Entonces tenemos trabajo que hacer. Juntos."</p>
+        <p>Se ataron los delantales. Lina rompió los huevos y el abuelo midió la harina. Hornearon un segundo pastel pequeño, justo del tamaño para llenar el hueco, y unieron los dos con miel, para que no se notara dónde terminaba uno y empezaba el otro. Lina colocó las tres estrellas de azúcar de nuevo encima, con mucho cuidado.</p>
+        <p>Cuando se puso el sol, llevaron el pastel a la señora Pilar juntos. Todos cantaron, y el pastel fue el más dulce que nadie recordaba.</p>
+        <p>De camino a casa, el nieto de la señora Pilar le susurró a Lina: "Ayer rompí una taza y escondí los pedazos. Me siento mal." Lina se acordó de la piedra. Así que dijo: "Puedes decir la verdad. Pesa al principio, pero después se siente ligero. Te lo prometo." El niño lo pensó, y asintió.</p>
+        <p>Esa noche, Lina se acostó en su camita encima de la panadería. Podía oír la campanita de abajo quedándose quieta por el día. Sus bolsillos se sentían vacíos. Su barriga se sentía ligera. Ni una piedra en ningún lado.</p>
+        <p>Y cada vez que un secreto empezaba a sentirse pesado, Lina recordaba: podía decir la verdad. Podía dejar la piedra en el suelo. Y se sentiría ligera, y cálida, y bien otra vez.</p>
+        <p>Fin.</p>
+    </div>
+  </section>
+
+  <section class="how">
+    <div class="how-head">
+      <h2 style="text-align:center">How this was made</h2>
+      <p>An automated, repeatable AI pipeline — the same workflow that can produce five short audiobooks every week.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h4>Story &amp; values</h4><p>Claude drafts an original, age-appropriate story built around one emotional-intelligence skill, then translates it to Spanish.</p></div>
+      <div class="step"><div class="n">2</div><h4>Narration</h4><p>Neural text-to-speech (ElevenLabs / Microsoft Edge Neural) voices each language at a gentle storytime pace.</p></div>
+      <div class="step"><div class="n">3</div><h4>Illustration</h4><p>A matching cover and scene art generated and color-matched to the story's mood and palette.</p></div>
+      <div class="step"><div class="n">4</div><h4>Assemble &amp; publish</h4><p>Audio, art and read-along text are composed into a finished, shareable audiobook page — ready for video next.</p></div>
+    </div>
+    <div class="cap">Built in one sitting as a sample for <b>Soulvers</b>. The pipeline scales to <b>5 audiobooks per week</b>, bilingual by default, each tied to a clear value or social skill for children.</div>
+  </section>
+
+  <footer>
+    <p class="name">Sample created for Soulvers by Tobias Brown</p>
+    <p>Original story, narration and art · English &amp; Español · not affiliated, made to demonstrate the workflow.</p>
+  </footer>
+</div>
+
+  <footer>
+    <p class="name">Sample created for Soulvers by Tobias Brown</p>
+    <p>Original story, narration and art &middot; English &amp; Espa&ntilde;ol &middot; not affiliated, made to demonstrate the workflow.</p>
+  </footer>
+</div>
+<script>
+function setLang(l){
+  var en = l==='en';
+  document.getElementById('btn-en').classList.toggle('active',en);
+  document.getElementById('btn-es').classList.toggle('active',!en);
+  document.getElementById('p-en').classList.toggle('hide',!en);
+  document.getElementById('p-es').classList.toggle('hide',en);
+  document.getElementById('s-en').classList.toggle('hide',!en);
+  document.getElementById('s-es').classList.toggle('hide',en);
+  document.querySelectorAll('audio').forEach(function(a){a.pause();});
+}
+</script>
+</body>
+</html>
